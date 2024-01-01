@@ -1,12 +1,7 @@
-#
 # The Chess piece classes
-#
-# TODO: add checking if check after moving suggested move later
-
+# Add checking if check after moving suggested move later
 # General chess piece
 from enums import Player
-
-
 class Piece:
     # Initialize the piece
     def __init__(self, name, row_number, col_number, player):
@@ -54,7 +49,6 @@ class Piece:
     # Get moves
     def get_valid_piece_moves(self, board):
         pass
-
 
 # Rook (R)
 class Rook(Piece):
@@ -196,8 +190,9 @@ class Knight(Piece):
         #         elif self.is_player(Player.PLAYER_2) and evaluating_square.is_player(Player.PLAYER_1):
         #             _moves.append((new_row, new_col))
         # return _moves
+        
         return self.get_valid_peaceful_moves(game_state) + self.get_valid_piece_takes(game_state)
-# Bishop
+# Move Bishop
 class Bishop(Piece):
     def __init__(self, name, row_number, col_number, player):
         super().__init__(name, row_number, col_number, player)
@@ -234,7 +229,7 @@ class Bishop(Piece):
             else:
                 self._breaking_point = True
 
-        # Right up of the bishop
+        # Right up of the Bishop
         self._breaking_point = False
         self._up = 1
         self._down = 1
