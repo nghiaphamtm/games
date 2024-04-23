@@ -1,9 +1,4 @@
-#
-# The Chess Board class
-# Will store the state of the chess game, print the chess board, find valid moves, store move logs.
-#
-# Note: move log class inspired by Eddie Sharick
-#
+
 from Piece import Rook, Knight, Bishop, Queen, King, Pawn
 from enums import Player
 
@@ -20,11 +15,11 @@ r \ c     0           1           2           3           4           5         
 '''
 
 
-# TODO: Flip the board according to the player
-# TODO: Pawns are usually indicated by no letters
-# TODO: stalemate
-# TODO: move logs - fix king castle boolean update
-# TODO: change move method argument about is_ai into something more elegant
+TODO: Flip the board according to the player
+ TODO: Pawns are usually indicated by no letters
+ TODO: stalemate
+ TODO: move logs - fix king castle boolean update
+ TODO: change move method argument about is_ai into something more elegant
 class game_state:
     # Initialize 2D array to represent the chess board
     def __init__(self):
