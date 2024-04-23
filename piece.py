@@ -1,6 +1,5 @@
-# The Chess piece classes
-# Add checking if check after moving suggested move later
-# General chess piece
+
+from this import now
 from enums import Player
 class Piece:
     # Initialize the piece
