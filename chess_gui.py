@@ -1,9 +1,4 @@
-# The GUI engine for Python Chess
-#
-# Author: Boo Sung Kim, Eddie Sharick
-# Note: The pygame tutorial by Eddie Sharick was used for the GUI engine. The GUI code was altered by Boo Sung Kim to
-# fit in with the rest of the project.
-#
+
 import chess_engine
 import pygame as py
 
@@ -190,7 +185,7 @@ def main():
         clock.tick(MAX_FPS)
         py.display.flip()
 
-    # elif human_player is 'w':
+     elif human_player is 'w':
     #     ai = ai_engine.chess_ai()
     #     game_state = chess_engine.game_state()
     #     valid_moves = []
@@ -255,7 +250,7 @@ def main():
     #         py.display.flip()
     #
     # elif human_player is 'b':
-    #     pass
+      pass
 
 
 def draw_text(screen, text):
