@@ -252,6 +252,18 @@ def main():
     # elif human_player is 'b':
       pass
 
+def draw_move_log(screen, game_state):
+    font = py.font.SysFont("Arial", 16)
+    move_log_rect = py.Rect(BOARD_WIDTH + 10, 10, UI_WIDTH - 20, HEIGHT - 20)
+    py.draw.rect(screen, py.Color("lightgray"), move_log_rect)
+
+    padding = 5
+    y = padding + 10
+
+    for i, move in enumerate(game_state.move_log[-20:]):
+        text = font.render(f"{i+1}. {move}", True, py.Color("black"))
+        screen.blit(text, (BOARD_WIDTH + 20, y))
+        y += 18
 
 def draw_text(screen, text):
     font = py.font.SysFont("Helvitca", 32, True, False)
