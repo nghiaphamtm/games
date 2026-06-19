@@ -1092,3 +1092,55 @@ class chess_ai:
                     return -30
                 elif piece.get_name() is "p":
                     return -10
+
+
+# Improved board evaluation with material, mobility, and positional bonuses
+
+class chess_ai:
+
+    PIECE_VALUES = {
+        "p": 100,
+        "n": 320,
+        "b": 330,
+        "r": 500,
+        "q": 900,
+        "k": 20000
+    }
+
+    def evaluate_board(self, game_state, player):
+        score = 0
+
+        for row in range(8):
+            for col in range(8):
+
+                if not game_state.is_valid_piece(row, col):
+                    continue
+
+                piece = game_state.get_piece(row, col)
+
+                value = self.PIECE_VALUES[piece.get_name()]
+
+                # Material
+                if piece.is_player(player):
+                    score += value
+                else:
+                    score -= value
+
+                # Mobility bonus
+                try:
+                    mobility = len(game_state.get_valid_moves((row, col)))
+                    if piece.is_player(player):
+                        score += mobility
+                    else:
+                        score -= mobility
+                except:
+                    pass
+
+                # Central control bonus
+                if row in [3, 4] and col in [3, 4]:
+                    if piece.is_player(player):
+                        score += 10
+                    else:
+                        score -= 10
+
+        return score
